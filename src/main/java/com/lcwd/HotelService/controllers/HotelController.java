@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/hotels")
+@SuppressWarnings("unused")
 public class HotelController {
 
     @Autowired
