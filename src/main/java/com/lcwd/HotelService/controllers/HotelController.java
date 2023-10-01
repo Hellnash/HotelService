@@ -16,6 +16,7 @@ public class HotelController {
 
     @Autowired
     HotelService hotelService;
+
     @PostMapping
     public ResponseEntity<Hotel> createHotel(@RequestBody Hotel hotel){
         Hotel savedHotel = hotelService.createHotel(hotel);
@@ -25,11 +26,11 @@ public class HotelController {
     @GetMapping
     public ResponseEntity<List<Hotel>> findAllHotel(@RequestBody Hotel hotel){
         List<Hotel> allHotel = hotelService.getAllHotels();
-        return ResponseEntity.status(HttpStatus.FOUND).body(allHotel);
+        return ResponseEntity.status(HttpStatus.OK).body(allHotel);
     }
 
     @GetMapping("/{hotelId}")
-    public ResponseEntity<Hotel> createHotel(@PathVariable String hotelId){
+    public ResponseEntity<Hotel> getAHotel(@PathVariable String hotelId){
         Hotel foundHotel = hotelService.getHotel(hotelId);
         return ResponseEntity.status(HttpStatus.OK).body(foundHotel);
     }
